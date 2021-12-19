@@ -10,6 +10,12 @@ variable "traefik_chart_version" {
   default     = "10.7.1" # See https://artifacthub.io/packages/helm/traefik/traefik for latest version(s)
 }
 
+# Helm chart deployment can sometimes take longer than the default 5 minutes
+variable "timeout_seconds" {
+  type    = number
+  default = 800 # 10 minutes
+}
+
 variable "replica_count" {
   description = "Number of replica pods to create"
   type        = number

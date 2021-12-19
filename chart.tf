@@ -6,6 +6,9 @@ resource "helm_release" "traefik" {
   chart      = "traefik"
   version    = var.traefik_chart_version
 
+  # Helm chart deployment can sometimes take longer than the default 5 minutes
+  timeout = var.timeout_seconds
+
   # If default_values == "" then apply default values from the chart if its anything else
   # then apply values file using the values_file input variable
   values = [var.default_values == "" ? var.default_values : file("${path.root}/${var.values_file}")]

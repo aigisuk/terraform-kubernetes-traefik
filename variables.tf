@@ -7,7 +7,7 @@ variable "namespace" {
 variable "traefik_chart_version" {
   description = "Version of Traefik chart to install"
   type        = string
-  default     = "10.7.1" # See https://artifacthub.io/packages/helm/traefik/traefik for latest version(s)
+  default     = "10.9.1" # See https://artifacthub.io/packages/helm/traefik/traefik for latest version(s)
 }
 
 # Helm chart deployment can sometimes take longer than the default 5 minutes

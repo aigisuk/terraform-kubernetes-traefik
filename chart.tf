@@ -9,9 +9,9 @@ resource "helm_release" "traefik" {
   # Helm chart deployment can sometimes take longer than the default 5 minutes
   timeout = var.timeout_seconds
 
-  # If default_values == "" then apply default values from the chart if its anything else
-  # then apply values file using the values_file input variable
-  values = [var.default_values == "" ? var.default_values : file("${path.root}/${var.values_file}")]
+  # If values file specified by the var.values_file input variable exists then apply the values from this file
+  # else apply the default values from the chart
+  values = [fileexists("${path.root}/${var.values_file}") == true ? file("${path.root}/${var.values_file}") : ""]
 
   set {
     name  = "deployment.replicas"

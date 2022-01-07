@@ -1,10 +1,11 @@
 # Install traefik helm_chart
 resource "helm_release" "traefik" {
-  namespace  = var.namespace
-  name       = "traefik-v${replace(var.traefik_chart_version, ".", "-")}"
-  repository = "https://helm.traefik.io/traefik"
-  chart      = "traefik"
-  version    = var.traefik_chart_version
+  namespace        = var.namespace
+  create_namespace = true
+  name             = "traefik-v${replace(var.traefik_chart_version, ".", "-")}"
+  repository       = "https://helm.traefik.io/traefik"
+  chart            = "traefik"
+  version          = var.traefik_chart_version
 
   # Helm chart deployment can sometimes take longer than the default 5 minutes
   timeout = var.timeout_seconds
@@ -17,8 +18,4 @@ resource "helm_release" "traefik" {
     name  = "deployment.replicas"
     value = var.replica_count
   }
-
-  depends_on = [
-    kubernetes_namespace.traefik_namespace
-  ]
 }

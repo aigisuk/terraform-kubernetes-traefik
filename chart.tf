@@ -2,7 +2,7 @@
 resource "helm_release" "traefik" {
   namespace        = var.namespace
   create_namespace = true
-  name             = "traefik-v${replace(var.traefik_chart_version, ".", "-")}"
+  name             = "traefik"
   repository       = "https://helm.traefik.io/traefik"
   chart            = "traefik"
   version          = var.traefik_chart_version

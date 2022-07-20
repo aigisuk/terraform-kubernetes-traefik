@@ -1,7 +1,7 @@
 # Terraform Kubernetes Traefik Module
 A Terraform module to provision [Traefik](https://traefik.io/traefik/) (v2.x) on a Kubernetes cluster via the [helm terraform provider](https://registry.terraform.io/providers/hashicorp/helm/latest).
 
-![Traefik Dashboard](https://res.cloudinary.com/qunux/image/upload/v1641522399/traefik_dashboard_nfkzvv.webp)
+![Traefik Dashboard](https://res.cloudinary.com/qunux/image/upload/v1658329325/Screenshot_2022-07-20_at_15-59-24_Traefik_cropped_ve9kyu.webp)
 
 ## Inputs
 
